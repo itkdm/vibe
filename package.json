@@ -1,0 +1,22 @@
+{
+  "name": "vibe-tutorial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "面向零基础用户的 Vibe Coding 效果与开发术语教程",
+  "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 5185 --strictPort",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs --host 0.0.0.0 --port 5185 --strictPort",
+    "assets:generate": "node scripts/generate-site-assets.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.22"
+  }
+}
