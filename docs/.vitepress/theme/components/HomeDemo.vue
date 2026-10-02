@@ -19,11 +19,6 @@ function closeDemo() {
 
 <template>
   <section id="demo" class="demo-stage" aria-label="下拉框与抽屉交互演示" @keydown.esc.window="closeDemo">
-    <div class="demo-stage__topline">
-      <span class="demo-stage__live"><i /> LIVE DEMO</span>
-      <span class="demo-stage__index">01 / 02</span>
-    </div>
-
     <div class="demo-window">
       <div class="demo-window__bar">
         <div class="window-dots" aria-hidden="true"><i /><i /><i /></div>
@@ -42,7 +37,6 @@ function closeDemo() {
         </aside>
 
         <div class="demo-canvas">
-          <div class="demo-canvas__eyebrow">BUTTON / VARIANT</div>
           <div class="demo-canvas__title">选择一种样式</div>
           <p class="demo-canvas__copy">点开下拉菜单，看看同一个按钮如何切换外观。</p>
 
