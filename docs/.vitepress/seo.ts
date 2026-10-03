@@ -29,6 +29,7 @@ function absoluteUrl(origin: string, base: string, path: string) {
 
 function pageKind(relativePath: string) {
   if (relativePath === 'index.md') return 'website'
+  if (relativePath === 'overview/index.md') return 'page'
   if (relativePath.endsWith('/index.md')) return 'section'
   return 'article'
 }
@@ -37,7 +38,9 @@ export function createSeoHead({ pageData, siteData, title, description, siteUrl 
   const origin = normalizeOrigin(siteUrl)
   const frontmatter = pageData.frontmatter
   const kind = pageKind(pageData.relativePath)
+  const noindex = frontmatter.noindex === true || pageData.isNotFound === true
   const head: HeadConfig[] = [
+    ['meta', { name: 'robots', content: `${noindex ? 'noindex' : 'index'}, follow, max-image-preview:large` }],
     ['meta', { property: 'og:type', content: kind === 'article' ? 'article' : 'website' }],
     ['meta', { property: 'og:site_name', content: siteData.title }],
     ['meta', { property: 'og:locale', content: siteData.lang.replace('-', '_') }],
@@ -48,13 +51,14 @@ export function createSeoHead({ pageData, siteData, title, description, siteUrl 
     ['meta', { name: 'twitter:description', content: description || siteData.description }]
   ]
 
-  if (frontmatter.noindex === true) head.push(['meta', { name: 'robots', content: 'noindex, follow' }])
-  if (!origin || pageData.isNotFound === true) return head
+  if (noindex || !origin || pageData.isNotFound === true) return head
 
   const canonicalUrl = absoluteUrl(origin, siteData.base, pagePath(pageData.relativePath))
   const imagePath = typeof frontmatter.ogImage === 'string' ? frontmatter.ogImage : '/social/default-share.jpg'
   const imageUrl = absoluteUrl(origin, siteData.base, imagePath)
-  const imageAlt = typeof frontmatter.ogImageAlt === 'string' ? frontmatter.ogImageAlt : title
+  const imageAlt = typeof frontmatter.ogImageAlt === 'string'
+    ? frontmatter.ogImageAlt
+    : '布吉岛 Vibe 教程蓝白分享图，展示虚拟向导角色与界面需求表达主题'
 
   head.push(
     ['link', { rel: 'canonical', href: canonicalUrl }],
@@ -72,13 +76,12 @@ export function createSeoHead({ pageData, siteData, title, description, siteUrl 
       name: siteData.title,
       url: canonicalUrl,
       description: description || siteData.description,
-      image: imageUrl,
       inLanguage: siteData.lang
     })])
   } else {
     head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': kind === 'section' ? 'CollectionPage' : 'Article',
+      '@type': kind === 'section' ? 'CollectionPage' : kind === 'page' ? 'WebPage' : 'Article',
       name: title,
       headline: title,
       description: description || siteData.description,

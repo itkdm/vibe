@@ -7,3 +7,4 @@ docs/.vitepress/dist/
 !.env.example
 .DS_Store
 Thumbs.db
+/.workbuddy-ai/
