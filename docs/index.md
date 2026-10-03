@@ -13,7 +13,4 @@ hero:
     - theme: brand
       text: 查看学习概览
       link: /overview/
-    - theme: alt
-      text: 先试试下拉框
-      link: '#demo'
 ---

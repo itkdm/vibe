@@ -2,7 +2,6 @@
   <section class="home-lower">
     <div class="home-lower__intro">
       <h2>先看懂，再说清楚。</h2>
-      <p>一个界面效果，配上它的专业名称、使用场景和能直接改写的提示词。</p>
     </div>
 
     <div class="home-lower__steps" aria-label="学习路径">
@@ -29,19 +28,9 @@
       </a>
     </div>
 
-    <div class="home-demo-intro">
-      <h2>先动手试，再认识它。</h2>
-      <p>试试下拉框和抽屉，看看界面状态如何变化，再到概览里学习这些交互的专业名称。</p>
-    </div>
-    <HomeDemo />
-
     <div class="home-lower__footnote">
       <span>从看得见的界面开始</span>
       <a href="/overview/">阅读网站概览 <b aria-hidden="true">→</b></a>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import HomeDemo from './HomeDemo.vue'
-</script>
