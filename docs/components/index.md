@@ -1,11 +1,11 @@
 ---
-title: 组件词典
-description: 按类别浏览 11 组常见界面组件与交互效果，逐步了解效果名称、使用场景和可直接改写的中文提示词。
+title: 界面组件词典：11 类常见交互效果
+description: 按 11 类浏览 188 个界面组件与交互条目；当前可体验 49 种按钮效果，并查看相应使用场景和中文提示词。
 ---
 
-# 组件词典
+# 界面组件词典
 
-从你想实现的界面效果开始，找到它的常用名称，再把效果、状态和交互方式说清楚。每个条目都有独立文档，后续会补充可操作的示例、使用场景和中文提示词。
+从你想实现的界面效果开始，找到它的常用名称，再把效果、状态和交互方式说清楚。按钮栏目现已提供 10 个独立条目，覆盖 49 种常见样式、交互和状态示例。
 
 <div class="component-index__stats" aria-label="词典内容概况">
   <div><strong>11</strong><span>个效果分类</span></div>
@@ -26,7 +26,7 @@ description: 按类别浏览 11 组常见界面组件与交互效果，逐步了
 <div class="component-index__grid">
   <section class="component-index__card">
     <div class="component-index__card-top"><h3>基础操作</h3><span>10 项</span></div>
-    <p>用户触发的常用操作与快捷入口。</p>
+    <p>按钮、图标按钮、切换操作与快捷入口；含 49 种可交互样例。</p>
     <div class="component-index__links"><a href="/components/basic-actions/01">按钮</a><a href="/components/basic-actions/02">图标按钮</a><a href="/components/basic-actions/03">按钮组</a><a href="/components/basic-actions/10">更多操作</a></div>
     <a class="component-index__all" href="/components/basic-actions/01">浏览基础操作 <span aria-hidden="true">→</span></a>
   </section>
